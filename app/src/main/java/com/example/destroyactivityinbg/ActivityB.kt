@@ -6,20 +6,16 @@ import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class ActivityA : AppCompatActivity() {
+class ActivityB : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_a)
-        Log.d("ActA", "onCreate")
-        findViewById<Button>(R.id.button_go_to_activityB).setOnClickListener {
-            val intent = Intent(this@ActivityA, ActivityB::class.java)
-            startActivity(intent)
-        }
+        setContentView(R.layout.activity_b)
+        Log.d("ActB", "onCreate")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("ActA", "onDestroy")
+        Log.d("ActB", "onDestroy")
     }
 }

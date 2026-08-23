@@ -23,9 +23,12 @@
         </activity>
 
         <activity android:name=".ActivityA"
-            android:excludeFromRecents="true"
+            android:autoRemoveFromRecents="true"
             android:taskAffinity="${applicationId}.acta"
             android:launchMode="singleTask" />
+
+        <activity android:name=".ActivityB" />
+
     </application>
 
 </manifest>
