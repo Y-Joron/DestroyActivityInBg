@@ -14,6 +14,16 @@ class ActivityB : AppCompatActivity() {
         Log.d("ActB", "onCreate")
     }
 
+    override fun onPause() {
+        super.onPause()
+        Log.d("ActB", "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("ActB", "onStop")
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         Log.d("ActB", "onDestroy")
