@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import java.lang.ref.WeakReference
 
 class ActivityA : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_a)
+        instance = WeakReference(this)
         Log.d("ActA", "onCreate")
         findViewById<Button>(R.id.button_go_to_activityB).setOnClickListener {
             val intent = Intent(this@ActivityA, ActivityB::class.java)
@@ -29,7 +31,18 @@ class ActivityA : AppCompatActivity() {
     }
 
     override fun onDestroy() {
+        if (instance?.get() == this) {
+            instance = null
+        }
         super.onDestroy()
         Log.d("ActA", "onDestroy")
+    }
+
+    companion object {
+        private var instance: WeakReference<ActivityA>? = null
+
+        fun finishIfAlive() {
+            instance?.get()?.finish()
+        }
     }
 }

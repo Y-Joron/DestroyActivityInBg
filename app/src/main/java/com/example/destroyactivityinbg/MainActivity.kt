@@ -32,5 +32,8 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d("MainAct", "onDestroy")
+        if (isFinishing) {
+            ActivityA.finishIfAlive()
+        }
     }
 }
