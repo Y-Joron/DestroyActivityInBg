@@ -10,10 +10,11 @@
         android:layout_height="wrap_content"
         android:text="activityA" />
 
-    <Button
-        android:id="@+id/button_go_to_activityB"
+    <TextView
+        android:id="@+id/text_is_in_pip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GoToActivityB" />
+        android:textSize="24dp"
+        android:textColor="#FFFF0000"/>
 
 </LinearLayout>
