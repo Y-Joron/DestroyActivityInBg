@@ -23,6 +23,7 @@
         </activity>
 
         <activity android:name=".ActivityA"
+            android:supportsPictureInPicture="true"
             android:autoRemoveFromRecents="true"
             android:taskAffinity="${applicationId}.acta"
             android:launchMode="singleTask" />

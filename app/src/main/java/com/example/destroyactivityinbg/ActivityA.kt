@@ -1,5 +1,6 @@
 package com.example.destroyactivityinbg
 
+import android.app.PictureInPictureParams
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -18,18 +19,29 @@ class ActivityA : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        Log.d("ActA", "onResume isInPictureInPictureMode: $isInPictureInPictureMode")
+    }
+
     override fun onPause() {
         super.onPause()
-        Log.d("ActA", "onPause")
+        Log.d("ActA", "onPause isInPictureInPictureMode: $isInPictureInPictureMode")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d("ActA", "onStop")
+        Log.d("ActA", "onStop isInPictureInPictureMode: $isInPictureInPictureMode")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("ActA", "onDestroy")
+        Log.d("ActA", "onDestroy isInPictureInPictureMode: $isInPictureInPictureMode")
+    }
+
+    override fun onUserLeaveHint() {
+        super.onUserLeaveHint()
+        val pictureInPictureParamsBuilder = PictureInPictureParams.Builder()
+        enterPictureInPictureMode(pictureInPictureParamsBuilder.build())
     }
 }
